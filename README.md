@@ -6,6 +6,8 @@ A small starting guide for people and AI assistants building Shopify automations
 
 Edit `start.md`. The build publishes that file unchanged at `/start.md` and `/llms.txt`, and renders the same content as accessible HTML at `/`.
 
+The home page presents the Markdown source in a dark editor theme, with syntax colors, line numbers, semantic headings, and clickable links. Copy Markdown copies the original file, including punctuation and line breaks. If clipboard access is unavailable, a dialog provides selected source text for manual copying.
+
 The detailed skills stay in [lightward/mechanic-skills](https://github.com/lightward/mechanic-skills); this repository links to them rather than maintaining another copy.
 
 GitHub Pages serves the root as HTML and determines MIME types itself. The raw Markdown endpoint is `/start.md`; the root advertises it with an alternate link and a visible link. This site does not implement content negotiation or promise a `text/markdown` response header.
