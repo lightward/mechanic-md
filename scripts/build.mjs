@@ -85,6 +85,8 @@ const page = `<!doctype html>
   <meta name="twitter:image:alt" content="mechanic.md in a Markdown editor. Build Shopify automations with your AI assistant. Skills, CLI, MCP, and docs. By Lightward.">
   <link rel="canonical" href="https://mechanic.md/">
   <link rel="alternate" type="text/markdown" href="https://mechanic.md/start.md" title="Read as Markdown">
+  <meta name="msvalidate.01" content="F9F0F37F6134505632D911BF5E816233">
+  <script defer src="/analytics.js"></script>
   <style>
     :root { color-scheme: dark; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #f0eee7; background: #20211d; font-synthesis: none; }
     * { box-sizing: border-box; }
@@ -195,11 +197,24 @@ const page = `<!doctype html>
 </html>
 `;
 
+// Search engines and AI assistants are welcome to read and cite the guide.
+const crawlers = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+  "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "Bingbot", "CCBot"];
+const robots = `User-agent: *\nAllow: /\n\n${crawlers.map((agent) => `User-agent: ${agent}\n`).join("")}Allow: /\n\nSitemap: https://mechanic.md/sitemap.xml\n`;
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mechanic.md/</loc></url>
+</urlset>
+`;
+
 await Promise.all([
   writeFile(new URL("index.html", output), page),
+  writeFile(new URL("robots.txt", output), robots),
+  writeFile(new URL("sitemap.xml", output), sitemap),
+  copyFile(new URL("../assets/analytics.js", import.meta.url), new URL("analytics.js", output)),
   writeFile(new URL("start.md", output), source),
   writeFile(new URL("llms.txt", output), source),
   writeFile(new URL(".nojekyll", output), ""),
   copyFile(new URL("../assets/og-image-v1.png", import.meta.url), new URL("og-image-v1.png", output)),
 ]);
-console.log("Built site, raw Markdown, and social share image in dist/.");
+console.log("Built site, raw Markdown, social share image, analytics, robots.txt, and sitemap.xml in dist/.");
