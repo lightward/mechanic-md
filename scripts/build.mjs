@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { marked } from "marked";
 
 const source = await readFile(new URL("../start.md", import.meta.url), "utf8");
@@ -66,6 +66,23 @@ const page = `<!doctype html>
   <meta name="theme-color" content="#272822">
   <title>mechanic.md — Build Shopify automations with your AI</title>
   <meta name="description" content="Give your AI assistant a starting point for Mechanic: task-writing skills, the task library, current documentation, and a preview-first workflow.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="mechanic.md">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://mechanic.md/">
+  <meta property="og:title" content="mechanic.md — Build Shopify automations with your AI">
+  <meta property="og:description" content="One Markdown file to get started. Find Mechanic skills, the CLI, MCP, and docs for building Shopify automations with your AI assistant.">
+  <meta property="og:image" content="https://mechanic.md/og-image-v1.png">
+  <meta property="og:image:secure_url" content="https://mechanic.md/og-image-v1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="mechanic.md in a Markdown editor. Build Shopify automations with your AI assistant. Skills, CLI, MCP, and docs. By Lightward.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="mechanic.md — Build Shopify automations with your AI">
+  <meta name="twitter:description" content="One Markdown file to get started with Mechanic skills, the CLI, MCP, and docs.">
+  <meta name="twitter:image" content="https://mechanic.md/og-image-v1.png">
+  <meta name="twitter:image:alt" content="mechanic.md in a Markdown editor. Build Shopify automations with your AI assistant. Skills, CLI, MCP, and docs. By Lightward.">
   <link rel="canonical" href="https://mechanic.md/">
   <link rel="alternate" type="text/markdown" href="https://mechanic.md/start.md" title="Read as Markdown">
   <style>
@@ -183,5 +200,6 @@ await Promise.all([
   writeFile(new URL("start.md", output), source),
   writeFile(new URL("llms.txt", output), source),
   writeFile(new URL(".nojekyll", output), ""),
+  copyFile(new URL("../assets/og-image-v1.png", import.meta.url), new URL("og-image-v1.png", output)),
 ]);
-console.log("Built dist/index.html, dist/start.md, and dist/llms.txt.");
+console.log("Built site, raw Markdown, and social share image in dist/.");

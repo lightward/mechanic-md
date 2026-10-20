@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">mechanic.md — Build Shopify automations with your AI assistant</title>
+  <desc id="desc">A charcoal Markdown editor with green and pink syntax accents. Skills, CLI, MCP, and docs. By Lightward.</desc>
+  <rect width="1200" height="630" fill="#20211d"/>
+  <rect x="36" y="36" width="1128" height="558" rx="14" fill="#272822" stroke="#494b40" stroke-width="2"/>
+  <path d="M50 37H1150Q1163 37 1163 50V110H37V50Q37 37 50 37Z" fill="#22231e"/>
+  <path d="M37 110H1163" stroke="#494b40" stroke-width="2"/>
+  <path d="M50 37H256V110H37V50Q37 37 50 37Z" fill="#272822"/>
+  <path d="M50 37H256" stroke="#a6e22e" stroke-width="3"/>
+  <path d="M256 39V110" stroke="#494b40" stroke-width="2"/>
+  <g font-family="Menlo, DejaVu Sans Mono, monospace">
+    <text x="66" y="82" font-size="22" fill="#a6e22e">M↓</text>
+    <text x="113" y="82" font-size="23" fill="#f0eee7">start.md</text>
+    <text x="1123" y="82" text-anchor="end" font-size="21" fill="#aaa99a">by Lightward</text>
+    <g font-size="21" fill="#858678" text-anchor="end">
+      <text x="99" y="225">1</text>
+      <text x="99" y="273">2</text>
+      <text x="99" y="333">3</text>
+      <text x="99" y="393">4</text>
+      <text x="99" y="453">5</text>
+      <text x="99" y="513">6</text>
+    </g>
+    <text x="140" y="225" font-size="78" font-weight="bold" letter-spacing="-3" xml:space="preserve"><tspan fill="#f38bab"># </tspan><tspan fill="#f0eee7">mechanic</tspan><tspan fill="#a6e22e">.md</tspan></text>
+    <text x="140" y="333" font-size="46" fill="#f0eee7">Build Shopify automations</text>
+    <text x="140" y="393" font-size="46" fill="#f0eee7">with your AI assistant.</text>
+    <text x="140" y="513" font-size="27" xml:space="preserve"><tspan fill="#f38bab">&gt; </tspan><tspan fill="#e6db74">Skills</tspan><tspan fill="#858678"> / </tspan><tspan fill="#a6e22e">CLI</tspan><tspan fill="#858678"> / </tspan><tspan fill="#ae9eea">MCP</tspan><tspan fill="#858678"> / </tspan><tspan fill="#f0eee7">Docs</tspan></text>
+  </g>
+</svg>

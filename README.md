@@ -24,6 +24,19 @@ python3 -m http.server 8080 --directory dist
 
 Open http://localhost:8080.
 
+## Social sharing
+
+The build includes Open Graph and large-image card metadata with an absolute HTTPS URL for `assets/og-image-v1.png` (1200 × 630). The editable artwork is `assets/og-image.svg`. The committed PNG keeps deployment independent of local fonts and image tools.
+
+To regenerate it with librsvg installed, in a local fish terminal:
+
+```sh
+rsvg-convert -o assets/og-image-v1.png assets/og-image.svg
+npm run build
+```
+
+After changing the artwork, use a new versioned PNG filename and update the metadata and copy path in `scripts/build.mjs` to avoid stale image caches. LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/) can refresh its preview of the home page.
+
 ## Deployment
 
 GitHub Actions builds pull requests and deploys pushes to `main` using GitHub Pages. In repository settings, Pages uses GitHub Actions with the custom domain `mechanic.md`.
