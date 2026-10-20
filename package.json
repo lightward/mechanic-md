@@ -1,0 +1,14 @@
+{
+  "name": "mechanic-md",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "marked": "16.4.2"
+  }
+}
