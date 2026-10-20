@@ -18,6 +18,7 @@ Local terminal (fish-compatible):
 
 ```sh
 npm ci
+npm test
 npm run build
 python3 -m http.server 8080 --directory dist
 ```
@@ -36,6 +37,25 @@ npm run build
 ```
 
 After changing the artwork, use a new versioned PNG filename and update the metadata and copy path in `scripts/build.mjs` to avoid stale image caches. LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/) can refresh its preview of the home page.
+
+## Search and measurement
+
+These accounts are owned by matt@lightward.com and set up the same way as mechanic.dev and locksmith.dev.
+
+| Service | Setup | Verified by |
+| --- | --- | --- |
+| Google Analytics | Property **Mechanic.md (AI starter guide)** (559723636) in the Lightward Inc account. Web stream **Mechanic.md Website** (16168353113), measurement ID `G-3JXHX4CSXH` | `assets/analytics.js` |
+| Google Search Console | Domain property `mechanic.md`, with the sitemap submitted | `google-site-verification` TXT record in DNSimple |
+| Bing Webmaster Tools | Site `https://mechanic.md/` | `msvalidate.01` meta tag in the page head |
+| GitHub Pages | Domain verified for the Lightward org, which prevents takeover | `_github-pages-challenge-lightward` TXT record |
+
+Keep those records and the meta tag. Removing them unverifies the site.
+
+`assets/analytics.js` runs only on mechanic.md. It doesn't load for local previews, Do Not Track, Global Privacy Control, or the Google Analytics opt-out flag. Google Signals and ad personalization are off. It keeps only `utm_*` parameters in page addresses, and trims referrers to their origin and path.
+
+It reports these events: `markdown_copy`, `raw_markdown_click`, `app_store_click`, `documentation_click`, `task_library_click`, and `github_click`. None of them include destination query strings. `npm test` checks this behavior.
+
+The build also publishes `robots.txt`, which explicitly allows search and AI crawlers, and `sitemap.xml`.
 
 ## Deployment
 
